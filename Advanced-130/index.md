@@ -3,11 +3,18 @@
 ##### Content
 #### [Paths](#paths)
 * [Invoices](#invoices)
-* [Payments]()
-* [OCCs]()
+* [Payments](#payments)
+* [OCCs](#occs)
 * []()
 
 
-## Paths
-### Invoices
+### Paths
+#### Invoices
     Parent customer > Billing details > Invoices
+
+#### Payments
+    Parent customer > Billing details > Payments
+
+#### OCCs
+    Parent customer > Billing details > OCCs
+___
