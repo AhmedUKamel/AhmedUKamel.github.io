@@ -100,6 +100,39 @@ ___
 #### Call guide
     My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide
 
+#### Departmental guide
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Departmental guide
+
+#### Business 250 guide
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Departmental guide > Business 250 guide
+
+#### 1st class guide
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Departmental guide > 1st class guide
+
+#### Handling rules
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Handling rules
+
+#### Roaming call guise
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Handling rules > Roaming call guise
+
+#### Shop complaints
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Handling rules > Shop complaints
+
+#### Bill official document request for post-paid customers
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Handling rules > Bill official document request for post-paid customers
+
+#### Foreign care
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Handling rules > Foreign care
+
+#### Orange - star postpaid
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Orange - star postpaid
+
+#### Terminations  reactivations
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Orange - star postpaid > Terminations  reactivations
+
+#### Deposit refund
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Orange - star postpaid > Deposit refund
+
 #### SIM card trouble shooting
     My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > SIM card trouble shooting
 
@@ -114,6 +147,3 @@ ___
 
 #### Postpaid simplicity team materials
     My intranet > Team cites > Customer care > Postpaid simplicity team materials
-
-
-
