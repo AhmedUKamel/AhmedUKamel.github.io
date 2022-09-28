@@ -2,16 +2,46 @@
 
 <p align='center'><b> Content </b></p>
 
-#### [Paths](#paths)
-* [Invoices](#invoices)
-* [Payments](#payments)
-* [OCCs](#occs)
-* [Services](#services)
 #### [Call senario](#call-senario)
 #### [CS Intranet](#cs-intranet)
-* [Documents](#documents)
-* [Troubleshooting](#troubleshooting)
-* [Network](#network)
+* Team cites
+  * Customer care
+    * Orange shops / Franchise / Khadamaty / Orange Xpress
+      * [Action that can be taken](#action-that-can-be-taken) (document)
+      * [All orange sales location and working hours](#all-orange-sales-location-and-working-hours)
+    * CC sub department
+      * [Campaigns](#campaigns)
+      * [New IP application (softphone) & transfer rules](#new-ip-application-softphone-transfer-rules)
+      * [110 personal call center](#110-personal-call-center)
+        * [Prepaid team links](#prepaid-team-links)
+        * [Postpaid team links](#postpaid-team-links)
+          * [Postpaid call center daily briefing](#postpaid-call-center-daily-briefing)
+          * [Postpaid assist team work instruction](#postpaid-assist-team-work-instruction)
+      * [Call guide](#call-guide)
+        * [Departmental guide](#departmental-guide)
+          * Customer complaints guide
+            * [Technical guide](#technical-guide)
+          * [Business 250 guide](#business-250-guide)
+          * [1st class guide](#1st-class-guide)
+        * [Handling rules](#handling-rules)
+          * [Roaming call guise](#roaming-call-guise)
+          * [Shop complaints](#shop-complaints)
+          * [Bill official document request for post-paid customers](#bill-official-document-request-for-post-paid-customers)
+          * [Foreign care](#foreign-care)
+        * [Orange - star postpaid](#orange-star-postpaid)
+          * [Terminations reactivations](#terminations-reactivations)
+          * [Deposit refund](#deposit-refund)
+        * [SIM card trouble shooting](#sim-card-trouble-shooting)
+        * [Scripts](#scripts)
+    * [CC hunts nos. / working hrs](#cc-hunts-nos-working-hrs)
+    * [Verification process web tool](#verification-process-web-tool)
+    * [Postpaid simplicity team materials](#postpaid-simplicity-team-materials)
+    * Sub department
+      * Team data
+        * [Troubleshooting](#troubleshooting)
+      * [Network](#network)
+#### Orangepedia
+#### CS Tool
 ___
 
 ### Paths
@@ -67,9 +97,6 @@ ___
 
     My intranet > Team cites > Customer care > Sub department > Network
 
-___
-___
-
 #### Action that can be taken
     My intranet > Team cites > Customer care > Orange shops / Franchise / Khadamaty / Orange Xpress > Action that can be taken
 
@@ -102,6 +129,9 @@ ___
 
 #### Departmental guide
     My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Departmental guide
+
+#### Technical guide
+    My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Departmental guide > Customer complaints guide > Technical guide
 
 #### Business 250 guide
     My intranet > Team cites > Customer care > CC sub department > 110 personal call center > Call guide > Departmental guide > Business 250 guide
