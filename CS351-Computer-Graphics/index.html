@@ -1,32 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>
-      Computer Graphics
-    </title>
+    <title>Computer Graphics</title>
+    <meta charset="UTF-8">
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
     </script>
     <script type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
-    <style>
-      pre code {
-        /* background-color: #eee; */
-        /* border: 1px solid #999; */
-        display: block;
-        padding: auto;
-        margin: 0 25% 0 25%;
-        font-size: large;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" type="text/css">
   </head>
   <body>
     <h1>CS351 Computer Graphics</h1>
     <h3>1. Line Drawing Algorithms</h3>
     <h4>1.1. Slope-Intercept formula</h4>
-    <div><strong>> General formula</strong></div>
-    <div>
+    <div class="title">> General formula</div>
+    <div class="equation">
       $$ 
         \begin{equation}
           \begin{split}
@@ -38,7 +28,7 @@
         \end{equation}
       $$
     </div>
-    <div><strong>> Code sample</strong></div>
+    <div class="title">> Code sample</div>
     <pre>
       <code>
           float x1,x2,y1,y2,m,b,i,y;
@@ -61,8 +51,8 @@
       </code>
     </pre>
     <h4>1.2. Parametric Form</h4>
-    <div><strong>> General formula</strong></div>
-    <div>
+    <div class="title">> General formula</div>
+    <div class="equation">
       $$ 
           \begin{equation}
             \begin{split}
@@ -74,7 +64,7 @@
           \end{equation}
       $$
     </div>
-    <div><strong>> Code sample</strong></div>
+    <div class="title">> Code sample</div>
     <pre>
       <code>
         float x1,x2,y1,y2,x,y,t;
@@ -96,8 +86,8 @@
       </code>
     </pre>
     <h4>1.3. Digital Differential Analyzer (DDA)</h4>
-    <div><strong>> General formula</strong></div>
-    <div>
+    <div class="title">> General formula</div>
+    <div class="equation">
       $$ 
           \begin{equation}
             \begin{split}
@@ -109,7 +99,7 @@
           \end{equation}
       $$
     </div>
-    <div><strong>> Code sample</strong></div>
+    <div class="title">> Code sample</div>
     <pre>
       <code>
         float x1,x2,y1,y2,x,y,dx,dy,steps,Xinc,Yinc;
@@ -139,8 +129,8 @@
       </code>
     </pre>
     <h4>1.4. Bresenham's law</h4>
-    <div><strong>> General formula</strong></div>
-    <div>
+    <div class="title">> General formula</div>
+    <div class="equation">
       $$ 
         \begin{equation}
           \begin{split}
@@ -156,7 +146,7 @@
         \end{equation}
       $$
     </div>
-    <div><strong>> Code sample</strong></div>
+    <div class="title">> Code sample</div>
     <pre>
       <code>
         void bresenham(int x1,int y1,int x2,int y2)
@@ -177,18 +167,18 @@
             if (dy < dx)
             {
                 p0 = 2 * dy - dx;
-                pixel(x1,y1);
+                setPixel(x1,y1);
 
                 for (int k = x1; k < x2; k++)
                 {
                     if (p0 < 0)
                     {
-                        pixel(++xk, yk);
+                        setPixel(++xk, yk);
                         p0 += 2 * dy;
                     }
                     else
                     {
-                        pixel(++xk, yk += Yinc);
+                        setPixel(++xk, yk += Yinc);
                         p0 += 2 * dy - 2 * dx;
                     }
                 }
@@ -196,18 +186,18 @@
             else
             {
                 p0 = 2 * dx - dy;
-                pixel(x1,y1);
+                setPixel(x1,y1);
 
                 for (int k = y1; k < y2; k++)
                 {
                     if (p0 < 0)
                     {
-                        pixel(xk, ++yk);
+                        setPixel(xk, ++yk);
                         p0 += 2 * dx;
                     }
                     else
                     {
-                        pixel(xk += Xinc, ++yk);
+                        setPixel(xk += Xinc, ++yk);
                         p0 += 2 * dx - 2 * dy;
                     }
                 }
@@ -218,8 +208,8 @@
     <hr>
     <h3>2. Circle Drawing Algorithms</h3>
     <h4>2.1. Basic equation</h4>
-    <div><strong>> General formula</strong></div>
-    <div>
+    <div class="title">> General formula</div>
+    <div class="equation">
       $$ 
         \begin{equation}
           \begin{split}
@@ -230,10 +220,26 @@
         \end{equation}
       $$
     </div>
-    <div><strong>> Code sample</strong></div>
+    <div class="title">> Code sample</div>
+    <pre>
+      <code>
+        float x,root,xc = 0,yc = 0,r = 100;
+
+        glBegin(GL_POINTS);
+
+            for(x = -r; x <= r; x += 0.1)
+            {
+                root = yc + sqrt(r*r - (x-xc)*(x-xc));
+                glVertex2i(x,yc - root);
+                glVertex2i(x,yc + root);
+            }
+
+        glEnd();
+      </code>
+    </pre>
     <h4>2.2. Trigonometric formula</h4>
-    <div><strong>> General formula</strong></div>
-    <div>
+    <div class="title">> General formula</div>
+    <div class="equation">
       $$ 
         \begin{equation}
           \begin{split}
@@ -245,10 +251,26 @@
         \end{equation}
       $$
     </div>
-    <div><strong>> Code sample</strong></div>
+    <div class="title">> Code sample</div>
+    <pre>
+      <code>
+        float x,y,i,r = 250;
+    
+            glBegin(GL_POINTS);
+    
+                for(i = 0; i <= M_PI * 2; i += 0.001)
+                {
+                    x = r * cos(i);
+                    y = r * sin(i);
+                    glVertex2i(x,y);
+                }
+
+            glEnd();
+      </code>
+    </pre>
     <h4>2.3. Midpoint</h4>
-    <div><strong>> General formula</strong></div>
-    <div>
+    <div class="title">> General formula</div>
+    <div class="equation">
       $$ 
         \begin{equation}
           \begin{split}
@@ -264,10 +286,9 @@
         \end{equation}
       $$
     </div>
-    <div><strong>> Code sample</strong></div>
     <pre>
       <code>
-        void plot4Points(ScreenPointStructure center,ScreenPointClass point)
+        void plotOn8Octants(ScreenPointStructure center,ScreenPointClass point)
         {
             setPixel(center.x + point.getX(),
                     center.y + point.getY());
@@ -277,58 +298,51 @@
                     center.y - point.getY());
             setPixel(center.x - point.getX(),
                     center.y - point.getY());
+
+            setPixel(center.x + point.getY(),
+                    center.y + point.getX());
+            setPixel(center.x - point.getY(),
+                    center.y + point.getX());
+            setPixel(center.x + point.getY(),
+                    center.y - point.getX());
+            setPixel(center.x - point.getY(),
+                    center.y - point.getX());
         }
       </code>
     </pre>
     <pre>
       <code>
-        void MidPointEllipsDrawingAlgorithm(ScreenPointStructure center,GLint rx,GLint ry)
+        void midPointAlgorithm(ScreenPointStructure center,GLint radius)
         {
-            ScreenPo  intClass currentPoint;
+            ScreenPointClass currentPoint;
             currentPoint.setX(0);
-            currentPoint.setY(ry);
-            GLint dx,dy,Pk2,Pk1;
-
-            Pk1 = ry*ry - rx*rx*ry - .25*rx*rx;
-            do {
-                plot4Points(center,currentPoint);
+            currentPoint.setY(radius);
+            plotOn8Octants(center,currentPoint);
+        
+            GLint p = 1 - radius;
+            while(currentPoint.getX() < currentPoint.getY())
+            {
                 currentPoint.incrementX();
-                dx = 2*ry*ry*currentPoint.getX();
-                dy = 2*rx*rx*currentPoint.getY();
-                if (Pk1 >= 0)
+                if (p < 0)
+                {
+                    p += 2*currentPoint.getX() + 1;
+                }
+                else
                 {
                     currentPoint.decrementY();
-                    dy = 2*rx*rx*currentPoint.getY();
-
-                    Pk1 -= dy;
+                    p += 2*currentPoint.getX() + 1 - 2*currentPoint.getY();
                 }
-                Pk1 += dx + ry*ry;
-            } while (dx < dy);
-
-            Pk2 =     ry*ry*(currentPoint.getX()+.5)*(currentPoint.getX()+.5)
-                    + rx*rx*(currentPoint.getY() -1)*(currentPoint.getY() -1)
-                    - rx*rx*ry*ry;
-            do {
-                plot4Points(center,currentPoint);
-                currentPoint.decrementY();
-                dx = 2*ry*ry*currentPoint.getX();
-                dy = 2*rx*rx*currentPoint.getY();
-                if (Pk2 <= 0)
-                {
-                    currentPoint.incrementX();
-                    dx = 2*ry*ry*currentPoint.getX();
-                    Pk2 += dx;
-                }
-                Pk2 += -dy + rx*rx;
-            } while (currentPoint.getY() >= 0);
+                plotOn8Octants(center,currentPoint);
+            }
         }
       </code>
     </pre>
+    <div class="title">> Code sample</div>
     <hr>
     <h3>3. Ellips Drawing Algorithms</h3>
     <h4>3.1. Midpoint</h4>
-    <div><strong>General formula</strong></div>
-    <div>
+    <div>> General formula</div>
+    <div class="equation">
       $$ 
         \begin{equation}
           \begin{split}
@@ -354,6 +368,231 @@
         \end{equation}
       $$
     </div>
-    <div><strong>> Code sample</strong></div>
+    <pre>
+      <code>
+        void plot4Points(ScreenPointStructure center,ScreenPointClass point)
+        {
+            setPixel(center.x + point.getX(),
+                    center.y + point.getY());
+            setPixel(center.x - point.getX(),
+                    center.y + point.getY());
+            setPixel(center.x + point.getX(),
+                    center.y - point.getY());
+            setPixel(center.x - point.getX(),
+                    center.y - point.getY());
+        }
+      </code>
+    </pre>
+    <pre>
+      <code>
+        void MidPointEllipsDrawingAlgorithm(ScreenPointStructure center,GLint rx,GLint ry)
+        {
+            ScreenPointClass currentPoint;
+            currentPoint.setX(0);
+            currentPoint.setY(ry);
+            GLint dx,dy,Pk2,Pk1;
+
+            Pk1 = ry*ry - rx*rx*ry - .25*rx*rx;
+            do
+            {
+                plot4Points(center,currentPoint);
+                currentPoint.incrementX();
+                dx = 2*ry*ry*currentPoint.getX();
+                dy = 2*rx*rx*currentPoint.getY();
+                if (Pk1 >= 0)
+                {
+                    currentPoint.decrementY();
+                    dy = 2*rx*rx*currentPoint.getY();
+
+                    Pk1 -= dy;
+                }
+                Pk1 += dx + ry*ry;
+            } while (dx < dy);
+
+            Pk2 =     ry*ry*(currentPoint.getX()+.5)*(currentPoint.getX()+.5)
+                    + rx*rx*(currentPoint.getY() -1)*(currentPoint.getY() -1)
+                    - rx*rx*ry*ry;
+            do
+            {
+                plot4Points(center,currentPoint);
+                currentPoint.decrementY();
+                dx = 2*ry*ry*currentPoint.getX();
+                dy = 2*rx*rx*currentPoint.getY();
+                if (Pk2 <= 0)
+                {
+                    currentPoint.incrementX();
+                    dx = 2*ry*ry*currentPoint.getX();
+                    Pk2 += dx;
+                }
+                Pk2 += -dy + rx*rx;
+            } while (currentPoint.getY() >= 0);
+        }
+      </code>
+    </pre>
+    <div class="title">> Code sample</div>
+    <hr>
+    <h3>4. Transformations</h3>
+    <h4>4.1. Translation</h4>
+    <div class="equation">
+      $$
+        \begin{equation}
+          \begin{split}
+          x^t & = x + T_x \\
+          y^t & = y + T_y \\ \\
+          T = & 
+            \begin{bmatrix}
+              1 & 0 & T_x \\
+              0 & 1 & T_y \\
+              0 & 0 & 1 \\
+            \end{bmatrix} \\ \\
+              & where : \\
+              & T_x \text{ is horizontal offset} \\
+              & T_y \text{ is vertical offset}
+          \end{split}
+        \end{equation}      
+      $$
+    </div>
+    <h4>4.2. Rotation</h4>
+    <div class="equation">
+      $$
+        \begin{equation}
+          \begin{split}
+            x^t & = x \cos{\Theta} - y \sin{\Theta} \\ 
+            y^t & = x \sin{\Theta} + y \cos{\Theta} \\ \\ 
+            T   & = 
+              \begin{bmatrix}
+                \cos{\Theta} & -\sin{\Theta} & 0 \\
+                \sin{\Theta} &  \cos{\Theta} & 0 \\
+                0            & 0             & 1 \\
+              \end{bmatrix} \\ \\ 
+                & where : \\ 
+                & \Theta \text{ is rotation angle} \\ \\
+                & \textbf{with respect to fixed point } (x_r, y_r) \\
+                x^t & = x \cos{\Theta} - y \sin{\Theta} + (x_r - x \cos{\Theta} + y \sin{\Theta}) \\ 
+                y^t & = x \sin{\Theta} + y \cos{\Theta} + (y_r - x \sin{\Theta} - y \cos{\Theta}) \\ \\ 
+                T   & = 
+                  \begin{bmatrix}
+                    \cos{\Theta} & -\sin{\Theta} & x_r - x \cos{\Theta} + y \sin{\Theta} \\
+                    \sin{\Theta} &  \cos{\Theta} & y_r - x \sin{\Theta} - y \cos{\Theta} \\
+                    0            & 0             & 1 \\
+                  \end{bmatrix} \\
+          \end{split}
+        \end{equation}
+      $$
+    </div>
+    <h4>4.3. Scaling</h4>
+    <div class="equation">
+      $$
+      \begin{equation}
+        \begin{split}
+          x^t & = S_x x \\
+          y^t & = S_y y \\ \\
+          T   & = 
+            \begin{bmatrix}
+              S_x & 0   & 0 \\
+              0   & S_y & 0 \\
+              0   & 0   & 1 \\
+            \end{bmatrix} \\ \\ 
+            & where : \\
+            & S_x \text{ is horizontal scaling factor} \\ 
+            & S_y \text{ is vertical scaling factor} \\ \\
+            & \textbf{with respect to fixed point} (x_f, y_f) \\
+            x^t & = x_f + S_x (x - x_f) \\
+            y^t & = y_f + S_y (y - y_f) \\ \\
+            T   & = 
+              \begin{bmatrix}
+                S_x & 0   & x_f (1 - S_x) \\
+                0   & S_y & y_f (1 - S_y) \\
+                0   & 0   & 1 \\
+              \end{bmatrix} \\
+        \end{split}
+      \end{equation}
+      $$
+    </div>
+    <h4>4.4. Reflection</h4>
+    <div class="equation">
+      $$
+        \begin{equation}
+          \begin{split}
+              \textbf{Against } x \textbf{ axis} & =
+                \begin{bmatrix}
+                  1 & 0  & 0 \\
+                  0 & -1 & 0 \\
+                  0 & 0  & 1 \\
+                \end{bmatrix} \\
+              \textbf{Against } y \textbf{ axis} & =
+                \begin{bmatrix}
+                  -1 & 0 & 0 \\
+                  0  & 1 & 0 \\
+                  0  & 0 & 1 \\
+                \end{bmatrix} \\
+              \textbf{Against origin} & =
+                \begin{bmatrix}
+                  -1 & 0  & 0 \\
+                  0  & -1 & 0 \\
+                  0  & 0  & 1 \\
+                \end{bmatrix} \\
+              \textbf{When } x = y & =
+                \begin{bmatrix}
+                  0 & 1 & 0 \\
+                  1 & 0 & 0 \\
+                  0 & 0 & 1 \\
+                \end{bmatrix} \\
+              \textbf{When } x = - y & =
+                \begin{bmatrix}
+                  0  & -1 & 0 \\
+                  -1 & 0  & 0 \\
+                  0  & 0  &  1 \\
+                \end{bmatrix}
+          \end{split}
+        \end{equation}
+      $$
+    </div>
+    <h4>4.5. Shear</h4>
+    <div class="equation">
+      $$
+        \begin{equation}
+          \begin{split}
+                & \textbf{X-direction shear} \\
+            x^t & = x + sh_x y \\ 
+            y^t & = y \\
+            T   & = 
+              \begin{bmatrix}
+                1 & sh_x & 0 \\ 
+                0 & 1    & 0 \\ 
+                0 & 0    & 1 \\ 
+              \end{bmatrix} \\ \\ 
+                & \textbf{Y-direction shear} \\
+            x^t & = x  \\ 
+            y^t & = y + sh_y x\\
+            T   & = 
+              \begin{bmatrix}
+                1    & 0 & 0 \\ 
+                sh_y & 1 & 0 \\ 
+                0    & 0 & 1 \\ 
+              \end{bmatrix} \\ \\
+                & \textbf{Shear relative to fixed point } (x_f, y_f) \\
+                & \textbf{X-direction shear} \\
+            x^t & = x + sh_x y - sh_x y_f \\ 
+            y^t & = y \\
+            T   & = 
+              \begin{bmatrix}
+                1 & sh_x & - sh_x y_f \\ 
+                0 & 1    & 0 \\ 
+                0 & 0    & 1 \\ 
+              \end{bmatrix} \\ \\ 
+                & \textbf{Y-direction shear} \\
+            x^t & = x  \\ 
+            y^t & = y + sh_y x - sh_y x_f \\
+            T   & = 
+              \begin{bmatrix}
+                1    & 0 & 0 \\ 
+                sh_y & 1 & - sh_y x_f \\ 
+                0    & 0 & 1 \\ 
+              \end{bmatrix} 
+          \end{split}
+        \end{equation}
+      $$
+    </div>
   </body>
 </html>
