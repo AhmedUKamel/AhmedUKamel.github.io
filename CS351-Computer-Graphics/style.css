@@ -90,7 +90,7 @@ h4 {
     margin: 1em 2em;
 }
 .big {
-    min-width: 80%;
-    max-width: 80%;
+    min-width: 50%;
+    max-width: 50%;
     margin: 1em auto;
 }
