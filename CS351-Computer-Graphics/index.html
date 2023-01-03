@@ -3,6 +3,7 @@
   <head>
     <title>Computer Graphics</title>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
     </script>
@@ -13,9 +14,8 @@
   </head>
   <body>
     <h1>CS351 Computer Graphics</h1>
-    <h3>1. Line Drawing Algorithms</h3>
-    <h4>1.1. Slope-Intercept formula</h4>
-    <div class="title">> General formula</div>
+    <h4>1.1. Slope-Intercept formula Line Drawing Algorithm</h4>
+    <div class="title">Algorithm Equation</div>
     <div class="equation">
       $$ 
         \begin{equation}
@@ -28,7 +28,13 @@
         \end{equation}
       $$
     </div>
-    <div class="title">> Code sample</div>
+    <div class="title-ar" >خطوات الحل</div>
+    <div class="ar" dir="rtl">
+      يتم حساب قيمة ميل الخط المستقيم (M) وقيمة نقطة تفاطع  الخط مع المحور الرأسي (B) 
+      ثم توليد النقاط عن طريق التعويض في المعادلة ابتداء نقطة البداية حتي نقطة النهاية
+      <br><span class="bold">العيوب:</span> أستخدام العمليات العشرية
+    </div>
+    <div class="title">Code sample</div>
     <pre>
       <code>
           float x1,x2,y1,y2,m,b,i,y;
@@ -36,8 +42,8 @@
           x2 =  100;
           y1 =  120;
           y2 =  200;
-          m  = (y2 - y1) / (x2 - x1);
-          b  = y1 - (m * x1);
+          m  =  (y2 - y1) / (x2 - x1);
+          b  =  y1 - (m * x1);
 
             glBegin(GL_POINTS);
 
@@ -50,8 +56,8 @@
             glEnd();
       </code>
     </pre>
-    <h4>1.2. Parametric Form</h4>
-    <div class="title">> General formula</div>
+    <h4>1.2. Parametric Form Line Drawing Algorithm</h4>
+    <div class="title">Algorithm Equation</div>
     <div class="equation">
       $$ 
           \begin{equation}
@@ -64,7 +70,15 @@
           \end{equation}
       $$
     </div>
-    <div class="title">> Code sample</div>
+    <div class="title-ar">خطوات الحل</div>
+    <div class="ar" dir="rtl">
+      يتم توليد النقاط بالتعويض في كلا المعادلتين بجميع القيم للمتغير (t) من 0 حتي 1
+      <br>
+      <span class="bold">ملحوظة:</span> عدد النقاط المولدة هو خارج قسمة 1 علي معدل زيادة المتغير (t)
+      أي اذا كان المتغير (t) يزيد بمعدل 0.01 فأن عدد النقاط يساوي 1\0.01 أي 100 نقطة
+      <br><span class="bold">العيوب:</span> أستخدام العمليات العشرية
+    </div>
+    <div class="title">Code sample</div>
     <pre>
       <code>
         float x1,x2,y1,y2,x,y,t;
@@ -85,8 +99,8 @@
           glEnd();
       </code>
     </pre>
-    <h4>1.3. Digital Differential Analyzer (DDA)</h4>
-    <div class="title">> General formula</div>
+    <h4>1.3. Digital Differential Analyzer Line Drawing Algorithm (DDA)</h4>
+    <div class="title">Algorithm Equation</div>
     <div class="equation">
       $$ 
           \begin{equation}
@@ -99,7 +113,14 @@
           \end{equation}
       $$
     </div>
-    <div class="title">> Code sample</div>
+    <div class="title-ar">خطوات الحل</div>
+    <div class="ar" dir="rtl">
+      أولا يتم حساب متغير عدد الخطوات (n) وهو القيمة الاكبر بين معدل التغير الرأسي والأفقي (dx,dy)
+      ثم يتم حساب معامل زيادة لكل من المحورين الافقي والرأسي (X_inc, Y_inc) كما بالمعادلة ثم اضافة معامل الزيادة الافقي (X_inc) الي قيمة ال (x) السابقة, وبالمثل مع المحور الرأسي
+      ثم نبدأ من نقطة البداية حتي بلوغ نقطة النهاية
+      <br><span class="bold">ملحوظة: </span> يجب مراعاة التقريب لاقرب رقم صحيح عقب كل اضافة
+      <br><span class="bold">العيوب: </span> أستخدام 4 عمليات عشرية و 2 صحيحة    </div>
+    <div class="title">Code sample</div>
     <pre>
       <code>
         float x1,x2,y1,y2,x,y,dx,dy,steps,Xinc,Yinc;
@@ -128,8 +149,8 @@
           glEnd();
       </code>
     </pre>
-    <h4>1.4. Bresenham's law</h4>
-    <div class="title">> General formula</div>
+    <h4>1.4. Bresenham's Line Drawing Algorithm</h4>
+    <div class="title">Algorithm Equation</div>
     <div class="equation">
       $$ 
         \begin{equation}
@@ -138,15 +159,52 @@
             P_k & = 
               \begin{cases}
               <    0 , & P_{k+1} = P_k + 2\Delta y \\
-                      & (x_k + 1, y_k) \\
+                       & (x_k + 1, y_k) \\
               \geq 0 , & P_{k+1} = P_k + 2\Delta y - 2\Delta x \\
-                      & (x_k + 1, y_k + 1)
+                       & (x_k + 1, y_k + 1)
               \end{cases}
           \end{split}
         \end{equation}
       $$
     </div>
-    <div class="title">> Code sample</div>
+    <div class="title-ar">خطوات الحل</div>
+    <div class="ar" dir="rtl">
+      أولا يتم حساب القيمة الأبتدائية للمتغير (P) ثم وضع النقطة الاولي هي نقطة البداية
+      <br>
+      نحسب قيمة المتغير (P) الجديدة بناء علي القيمة السابقة للمتعير اذا كانت اقل من الصفر او عير ذلك كما موضح بالمعادلة, ثم نضع قيمة المتعير (y) الجديدة بناء علي القيمة السابقة للمتغير (p) اذا كانت القيمة موجبة نضيف الي المتعير (y) واحد صحيح واذا كانت سالبة نضغ قيمة المتعير (y) كما هي.
+      <br><span class="bold">ملحوظة: </span> <b>دائما نضيف لقيمة المتعير (x) واحد صحيح</b> بينما نحسب القيم الجديدة لكل من المتعير (y) والمتغير (p) بناء علي القيم السابقة ولذلك تعتمد الخوارزمية علي مبدأ ال Parameter Desicion.
+      <br><span class="bold">المميزات: </span> أستخدام عمليات علي ارقام صحيحة فقط لا غير, بالاضافة الي امكانية أستخدام التحويلات الرياضية لرسم الخط المستقيم في اي جزء من الشاشة كما يلي
+      <br><span class="bold">خطوات رسم أي خد علي الشاشة: </span>
+      القاعدتين المستخدمتين لرسم الخط المستقيم في اي جزء من الشاشة 
+      <br><br>
+      القاعدة الاولي: حساب القيمة المطلقة لخارج قسمة معدل التغير الرأسي dy علي معدل التغير الافقي dx أي |dy/dx| 
+      <br>
+      الحالة الاولي اذا كان الناتج اصغر من الواحد الصحيح نكمل باقي الخطوات 
+      <br>
+      الحالة الثانية اذا كان الناتج اكبر من الواحد الصحيح سوف نقوم بتبديل كل من قيم ال (x) مع قيم ال (y)، أي سوف نرسم من النقطة (y1,x1) الي النقطة (y2,x2) بدلا من النقطة (x1,y1) الي النقطة (x2,y2) وبعد توليد النقاط نقوم بتبديل نقاط ال (x) مع نقاط ال (y) مجددا
+      <br><br>
+      القاعدة الثانية نقوم بحساب قيمة معدل تغير كل من المحورين 
+      <br>
+      الحالة الاولي اذا كانت القيم موجبة او اكبر من الصفر نكمل باقي الخطوات
+      <br>
+      الحالة الثانية اذا كان احدهما سالب او اصغر من الصفر نقوم بوضع قيمة معدل التغير لهذا المحور بالقيمة الموجبة له ونستعوض عن الاضافة في هذا الاتجاح بالطرح، علي سبيل المثال بدلا من اضافة واحد الي الي المتغير (y) في حالة قيمة المتغير (p) أكبر من الصفر سوف نقوم بطرح واحد صحيح من المتغير (y) اذا كانت قيمة المتغير (p) اكبر من الصفر في حال كان معدل التغير الرأسي (dy) سالب او اصغر من الصفر
+      <br><span class="bold">مثال للجدول: </span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>K</th>
+          <th>P</th>
+          <th>X</th>
+          <th>Y</th>
+        </tr>
+      </thead>
+    </table>
+    <!-- <div>
+      If (dx < 0) then do dx = |dx| , X_inc = -1
+    </div> -->
+    <img src="https://content.instructables.com/FJI/0S3X/ITQI4R0X/FJI0S3XITQI4R0X.jpg?auto=webp&frame=1&width=320&md=c25f3424725ea623a716ddc6a35d9cc1" alt="8-octant" >
+    <div class="title">Code sample</div>
     <pre>
       <code>
         void bresenham(int x1,int y1,int x2,int y2)
@@ -206,21 +264,26 @@
       </code>
     </pre>
     <hr>
-    <h3>2. Circle Drawing Algorithms</h3>
-    <h4>2.1. Basic equation</h4>
-    <div class="title">> General formula</div>
+    <h4>2.1. Basic equation Circle Drawing Algorithm</h4>
+    <div class="title">Algorithm Equation</div>
     <div class="equation">
       $$ 
         \begin{equation}
           \begin{split}
             y & = y_c \pm \sqrt{r^2 - (x-x_c)^2} \\
               & where: \\
-              & -r \leq x \leq r
+              & -r \leq x \leq r \\
+              & center =  (x_c,y_c)
           \end{split}
         \end{equation}
       $$
     </div>
-    <div class="title">> Code sample</div>
+    <div class="title-ar">خطوات الحل</div>
+    <div class="ar" dir="rtl">
+      أولا يتم توليد قيم المتعير (x) ابتداء من سالب نصف القطر (r-) حتي موجب نصف القطر (r) والتعويض في المعادلة لتوليد نقط (y).
+      <br><span class="bold">العيوب: </span> أستخدام عمليات عشرية بالاضافة الي الجزر التربيعي والنربيع
+    </div>
+    <div class="title">Code sample</div>
     <pre>
       <code>
         float x,root,xc = 0,yc = 0,r = 100;
@@ -237,8 +300,8 @@
         glEnd();
       </code>
     </pre>
-    <h4>2.2. Trigonometric formula</h4>
-    <div class="title">> General formula</div>
+    <h4>2.2. Trigonometric formula Circle Drawing Algorithm</h4>
+    <div class="title">Algorithm Equation</div>
     <div class="equation">
       $$ 
         \begin{equation}
@@ -251,7 +314,12 @@
         \end{equation}
       $$
     </div>
-    <div class="title">> Code sample</div>
+    <div class="title-ar">خطوات الحل</div>
+    <div class="ar" dir="rtl">
+      اولا يتم توليد قيم الزاوية ثيتا ابتداء من الصفر حتي (2pi) ويتم حساب قيمة حاصل ضرب نصف القطر (r) في كل من جيب الزاوية (sin) وحيب تمام الزاوية (cos) وتوليد نقط الدائرة كما بالمعادلة 
+      <br><span class="bold">العيوب: </span> أستخدام الدوال المثلثية مثل جيب الزاوية وجيب تمام الزاوية
+    </div>
+    <div class="title">Code sample</div>
     <pre>
       <code>
         float x,y,i,r = 250;
@@ -268,8 +336,8 @@
             glEnd();
       </code>
     </pre>
-    <h4>2.3. Midpoint</h4>
-    <div class="title">> General formula</div>
+    <h4>2.3. Midpoint Circle Drawing Algorithm</h4>
+    <div class="title">Algorithm Equation</div>
     <div class="equation">
       $$ 
         \begin{equation}
@@ -286,27 +354,51 @@
         \end{equation}
       $$
     </div>
+    <div class="title-ar">خطوات الحل</div>
+    <div class="ar" dir="rtl">
+      أولا نقوم بحساب القيمة الابتدائية للمتغير (p) ثم نقوم بتحديد القيمة التالية لكل من متغير المحور الأفقي (y) ومتغير المحور الرأسي (x) وقيمة المتغير (p) التالية من خلال قيمة المتغير (p) الحالية.
+      <br>
+      الحالة الاولي اذا كانت قيمة (p) الحالية سالبة او اقل من الصفر نضيف الي قيمة المتغير (x) واحد صحيح
+      <br>
+      الحالة الثانية اذا كانت قيمة (p) الحالية موجبة او اكبر من الصفر نضيف الي كل من المتغيرين (x) و (y) واحد صحيح
+      <br>
+      بعد توليد النقاط نقوم بتكرار النقاط 4 مرات ثم نقوم بتبديل نقاط  ال (x) وال (y) ثم تكرار النقاط 4 مرات وتطبيق قاعدة الاشارات علي ال 8 مجموعات.
+      <br><span class="bold">ملحوظة: </span>دائما ما نضيف واحد صحيح الي قيمة المتغير (x) ويكون شرط التوقف عندما تكون قيمة المتغير (x) التالية (x_k+1) اكبر من او تتساوي مع قيمة المتغير (y) التالية (y_k+1)، وايضا تعتمد هذه الخوارزمية علي مبدأ Parameter Desicion
+      <br><span class="bold">مثال للجدول: </span>
+    </div>
+    <table>
+      <tr>
+        <th>K</th>
+        <th>P</th>
+        <th>X_k+1</th>
+        <th>Y_k+1</th>
+        <th>2*X_k+1</th>
+        <th>2*Y_k+1</th>
+      </tr>
+    </table>
+    <img src="https://media.geeksforgeeks.org/wp-content/uploads/circle-5.jpg" alt="8-octant" >
+    <div class="title">Code sample</div>
     <pre>
       <code>
         void plotOn8Octants(ScreenPointStructure center,ScreenPointClass point)
         {
             setPixel(center.x + point.getX(),
-                    center.y + point.getY());
+                     center.y + point.getY());
             setPixel(center.x - point.getX(),
-                    center.y + point.getY());
+                     center.y + point.getY());
             setPixel(center.x + point.getX(),
-                    center.y - point.getY());
+                     center.y - point.getY());
             setPixel(center.x - point.getX(),
-                    center.y - point.getY());
+                     center.y - point.getY());
 
             setPixel(center.x + point.getY(),
-                    center.y + point.getX());
+                     center.y + point.getX());
             setPixel(center.x - point.getY(),
-                    center.y + point.getX());
+                     center.y + point.getX());
             setPixel(center.x + point.getY(),
-                    center.y - point.getX());
+                     center.y - point.getX());
             setPixel(center.x - point.getY(),
-                    center.y - point.getX());
+                     center.y - point.getX());
         }
       </code>
     </pre>
@@ -337,11 +429,17 @@
         }
       </code>
     </pre>
-    <div class="title">> Code sample</div>
     <hr>
-    <h3>3. Ellips Drawing Algorithms</h3>
-    <h4>3.1. Midpoint</h4>
-    <div>> General formula</div>
+    <h4>3.1. Midpoint Ellipse Drawing Algorithm</h4>
+    <div class="equation">
+      $$
+        \begin{equation}
+          \text{General Equation for Ellipse} \\
+          1 = (\frac{x-x_c}{r_x})^2 + (\frac{y-y_c}{ry})^2
+        \end{equation}
+      $$
+    </div>
+    <div class="title"> Algorithm Equation</div>
     <div class="equation">
       $$ 
         \begin{equation}
@@ -354,7 +452,7 @@
                          & (x_k + 1, y_k) \\
                 \geq 0 , & P1_{k+1} = P1_k + 2r_{y}^2 x_{k+1} -2r_x^2 y_{k+1}+ r_{y}^2 \\
                          & (x_k + 1, y_k - 1)
-                \end{cases} \\
+                \end{cases} \\ \\
                   & Region 2 \\
             P2_0  & = r_y^2 (x_0 + \frac{1}{2})^2 + r_x^2(y_0 - 1)^2 - r_x^2 r_y^2 \\
             P2_k  & = 
@@ -368,24 +466,36 @@
         \end{equation}
       $$
     </div>
+    <div class="title-ar">خطوات الحل</div>
+    <div class="ar" dir="rtl">
+      تعتمد الطريقة علي رسم الربع الموجب في القطاع الناقص ثم استخدام خواص التماثل لرسم باقي ارباع القطاع الناقص
+      يتكون كل ربع من منطقتين الاولي (Region 1) والثانية (Region 2) ولكل منهما قوانين في الرسم كما موضح
+      <br><br><span class="bold">المنطقة الاولي (Region 1)</span>
+      نبدأ من النقطة (ry,0) ونقوم بحساب القيمة الابتدائية للمتغير الاول (p1) نستمر في حساب القيم الجديدة لكل من المتغير (y) والمتغير (p1) طبقا للمعادلة الموضحة بينما قيمة المتغير (x) دائما يزداد بمقدار واحد صحيح حتي الوصول لشرط التوقف وهو (حاصل ضرب تربيع نصف القطر الرأسي (ry) في القيمة التالية للمتغير (x)) اكبر من او يساوي (حاصل ضرب تربيع نصف القطر الافقي (rx) في القيمة التالية للمتغير (y)) اي (rx*rx*y_k+1) =< (ry*ry*x_k+1) 
+      <br><br><span class="bold">المنطقة الثانية (Region 2)</span>
+      نبدأ من اخر نقطة بعد شرط توقف المنطقة الاولي (y0,x0) ونقوم بحساب القيمة الابتدائية للمتغير الثاني (p2) ونستمر في حساب القيم الجديدة لكل من المتغير  (x) والمتغير (p2) طبقا للمعادلة الموضحة بينما قيمة المتغير (y) دائما تنقص بمقدار واحد صحيح حتي الوصول لشرط التوقف وهو ان تصل قيمة المتغير (y) الي الصفر (y=0) 
+      <br><span class="bold">ملحوظة: </span>تعتمد هذه الخوارزمية علي مبدأ Parameter Desicion
+    </div>
+    <img src="https://www.tutorialandexample.com/wp-content/uploads/2020/03/Scan-Conversion-of-an-Ellipse-Computer-Graphics-1.png" alt="8-octant" >
+    <div class="title">Code sample</div>
     <pre>
       <code>
         void plot4Points(ScreenPointStructure center,ScreenPointClass point)
         {
             setPixel(center.x + point.getX(),
-                    center.y + point.getY());
+                     center.y + point.getY());
             setPixel(center.x - point.getX(),
-                    center.y + point.getY());
+                     center.y + point.getY());
             setPixel(center.x + point.getX(),
-                    center.y - point.getY());
+                     center.y - point.getY());
             setPixel(center.x - point.getX(),
-                    center.y - point.getY());
+                     center.y - point.getY());
         }
       </code>
     </pre>
     <pre>
       <code>
-        void MidPointEllipsDrawingAlgorithm(ScreenPointStructure center,GLint rx,GLint ry)
+        void MidPointEllipseDrawingAlgorithm(ScreenPointStructure center,GLint rx,GLint ry)
         {
             ScreenPointClass currentPoint;
             currentPoint.setX(0);
@@ -429,10 +539,10 @@
         }
       </code>
     </pre>
-    <div class="title">> Code sample</div>
     <hr>
-    <h3>4. Transformations</h3>
+    <img src="https://www.onlinemathlearning.com/image-files/transformations2.png" alt="">
     <h4>4.1. Translation</h4>
+    <img src="data:image/png;base64,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" alt="">
     <div class="equation">
       $$
         \begin{equation}
@@ -453,6 +563,7 @@
       $$
     </div>
     <h4>4.2. Rotation</h4>
+    <img src="https://1.bp.blogspot.com/-OP2VzaufgrU/YFh9o5viOII/AAAAAAAAH6o/c7yqqvvKgDsSoqA-lVpUn-Hx2Ix3Mmw4gCLcBGAsYHQ/s16000/Rotation.png" alt="">
     <div class="equation">
       $$
         \begin{equation}
@@ -481,6 +592,7 @@
       $$
     </div>
     <h4>4.3. Scaling</h4>
+    <img src="https://1.bp.blogspot.com/-zrTEPfmxfmI/YHrFDn9CgpI/AAAAAAAAIHQ/ZM1iMj-75WUdBc0MJpTj1DokTZP4j-zLACLcBGAsYHQ/s16000/Enlargement%2Band%2BReduction.png" alt="">
     <div class="equation">
       $$
       \begin{equation}
@@ -510,6 +622,7 @@
       $$
     </div>
     <h4>4.4. Reflection</h4>
+    <img src="https://1.bp.blogspot.com/-e8sghUmvm_U/YES9X3dRHUI/AAAAAAAAH0k/DhuCAsRi1Z0pZKjbrzB2K0pXBfUGM6zGgCLcBGAsYHQ/s16000/Transformation%2B-%2BReflection.png" alt="">
     <div class="equation">
       $$
         \begin{equation}
@@ -519,25 +632,25 @@
                   1 & 0  & 0 \\
                   0 & -1 & 0 \\
                   0 & 0  & 1 \\
-                \end{bmatrix} \\
+                \end{bmatrix} \\ \\
               \textbf{Against } y \textbf{ axis} & =
                 \begin{bmatrix}
                   -1 & 0 & 0 \\
                   0  & 1 & 0 \\
                   0  & 0 & 1 \\
-                \end{bmatrix} \\
+                \end{bmatrix} \\ \\
               \textbf{Against origin} & =
                 \begin{bmatrix}
                   -1 & 0  & 0 \\
                   0  & -1 & 0 \\
                   0  & 0  & 1 \\
-                \end{bmatrix} \\
+                \end{bmatrix} \\ \\
               \textbf{When } x = y & =
                 \begin{bmatrix}
                   0 & 1 & 0 \\
                   1 & 0 & 0 \\
                   0 & 0 & 1 \\
-                \end{bmatrix} \\
+                \end{bmatrix} \\ \\
               \textbf{When } x = - y & =
                 \begin{bmatrix}
                   0  & -1 & 0 \\
@@ -549,6 +662,7 @@
       $$
     </div>
     <h4>4.5. Shear</h4>
+    <img src="http://15462.courses.cs.cmu.edu/fall2019content/lectures/06_transformations/images/slide_028.jpg" alt="">
     <div class="equation">
       $$
         \begin{equation}
