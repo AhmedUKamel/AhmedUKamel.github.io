@@ -804,5 +804,98 @@
     <div class="ar" dir="rtl">
       هم النقطتان الشرق والغرب علي المحور الافقي مع الشمال والجنوب علي المحور الرأسي مع الشمال الشرقي والجنوب الغربي علي القطر الايمن مع الشمال الغربي والجنوب الشرقي علي القطر الايسر
     </div>
+    <hr>
+    <h4>6.1. Bezier Curve Explicit </h4>
+    <div class="title">Algorithm Equation</div>
+    <div class="equation">
+      $$ 
+        \begin{equation}
+          b(t) = \sum_{i = 0}^{n} \binom{n}{i} t^i (1-t)^{n-i} P \\
+          where: \\
+          0 \leq t \leq 1            
+        \end{equation}
+      $$
+    </div>
+    <div class="title-ar" >خطوات العمل</div>
+    <div class="ar" dir="rtl">
+      تعتمد الطريقة علي المعادلة السابقة حيث يتم تكوين معادلتين مشتقتين من المعادلة السابقة الاولي خاصة بقيمة المحور الأفقي (x) والثانية خاصة بقيمة المحور الرأسي (y)، بعد تكوين المعادلتين يتم التعويض بقيمة معينة للمتغير (t) بين الصفر و الواحد  او بالفترة ما بين الصفر والواحد [1, 0] لرسم الخط كامل
+      <br><span class="bold">نقاط التحكم (Control Points)</span>
+      <div class="equation">
+        $$ 
+          \begin{equation}
+            \begin{split}
+              P_0 & = (1 , 2 ) \\ 
+              P_1 & = (3 , 10) \\ 
+              P_2 & = (5 , 15) \\ 
+              P_3 & = (7 , 2 ) \\ 
+              P_4 & = (9 , 8 ) \\ 
+              P_5 & = (11, 2 ) \\ 
+            \end{split}          
+          \end{equation}
+        $$
+      </div>
+      <br><span class="bold">معادلة المحور الأفقي (x)</span>
+      <div class="equation">
+        $$ 
+          \begin{equation}
+            \begin{split}
+              x(t)  & = \binom{5}{0} t^0 (1-t)^5 * 1 \\
+                    & + \binom{5}{1} t^1 (1-t)^4 * 3 \\
+                    & + \binom{5}{2} t^2 (1-t)^3 * 5 \\
+                    & + \binom{5}{3} t^3 (1-t)^2 * 7 \\
+                    & + \binom{5}{4} t^4 (1-t)^2 * 9 \\
+                    & + \binom{5}{5} t^5 (1-t)^1 * 11
+            \end{split}          
+          \end{equation}
+        $$
+      </div>
+      <br><span class="bold">معادلة المحور الرأسي (y)</span>
+      <div class="equation">
+        $$ 
+          \begin{equation}
+            \begin{split}
+              y(t)  & = \binom{5}{0} t^0 (1-t)^5 * 2  \\
+                    & + \binom{5}{1} t^1 (1-t)^4 * 10 \\
+                    & + \binom{5}{2} t^2 (1-t)^3 * 15 \\
+                    & + \binom{5}{3} t^3 (1-t)^2 * 2  \\
+                    & + \binom{5}{4} t^4 (1-t)^2 * 8  \\
+                    & + \binom{5}{5} t^5 (1-t)^1 * 2
+            \end{split}          
+          \end{equation}
+        $$
+      </div>
+      <br><span class="bold">قيمة النقطة عندما (t = 0.3)</span>
+      <div class="equation">
+        $$ 
+          \begin{equation}
+            \begin{split}
+              x(0.3)  & = 4 \\
+              y(0.3)  & = 9.0644
+            \end{split}          
+          \end{equation}
+        $$
+      </div>
+    </div>
+    <h4>6.2. Bezier Curve Recursive </h4>
+    <img src="https://pages.mtu.edu/~shene/COURSES/cs3621/NOTES/spline/Bezier/b-sub-chart.jpg" alt="">
+    <div class="title-ar" >خطوات العمل</div>
+    <div class="ar" dir="rtl">
+      تعتمد الطريقة علي القيم السابقة للمتغير (t) حيث نقوم ببعض الحسابات بدلا من التعويض المباشر في معادلة، طريقة الحل عبارة عن مستويات (Levels) يحتوي كل مستوي علي مجموعة رأسية من النقاط عددها (r) نحدد قيمة ال (t) كما بالمثال السابق (t = 0.3) ونحسب ايضا مكملة المتغيرة ونرمز له (u) حيث (u = 1 - t) 
+      <br><span class="bold">الخطوة الاولي: </span>
+      نضع المستوي الاول هو قيم المتغير (x) حيث ان عدد عناصر المستوي (r)  يساوي عدد قيم المتغير (x)
+      <img src="levels/l1.png" alt="" class="big">
+      <br><span class="bold">الخطوة الثانية: </span>
+      نقوم بحساب قيم عناصر المستوي الثاني حيث ان عددهم اقل من عدد عناصر المستوي السابق بواحد صحيح وقيمة كل عنصر تحسب عن طريق كل من العنصرين المناظرين في المستوي السابق
+      <img src="levels/l2.1.png" alt="" class="big">
+      <!-- <br><span class="bold"></span> -->
+      حيث قيمة كل عنصر تساوي حاصل جمع قيمة مكملة المتغير (t) الا وهو (u) في العنصر المناظر الاعلي في المستوي السابق مع قيمة المتغير (t) في العنصر المناظر الادني في المستوي السابق 
+      <img src="levels/l2.2.png" alt="" class="big">
+      <br><span class="bold">الخطوة الثالثة: </span>
+      نقوم بتكرار الخطوات وحساب قيم عناصر كل مستوي حتي نصل للمستوي الاخير ذو العنصر الواحد ويصبح هو قيمة المتغير (x) عندما (t = 0.3) 
+      <img src="levels/lf1.png" alt="" class="big">
+      <br><span class="bold">حساب قيمة المتغير (y): </span>
+      نكرر الخطوات السابقة مع قيم المتغير (y) حتي نصل لقيمة المتغير (y) عندما (t = 0.3)
+      <img src="levels/lf2.png" alt="" class="big">
+    </div>
   </body>
 </html>
