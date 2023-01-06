@@ -120,7 +120,20 @@
       ثم يتم حساب معامل زيادة لكل من المحورين الافقي والرأسي (X_inc, Y_inc) كما بالمعادلة ثم اضافة معامل الزيادة الافقي (X_inc) الي قيمة ال (x) السابقة, وبالمثل مع المحور الرأسي
       ثم نبدأ من نقطة البداية حتي بلوغ نقطة النهاية
       <br><span class="bold">ملحوظة: </span> يجب مراعاة التقريب لاقرب رقم صحيح عقب كل اضافة
-      <br><span class="bold">العيوب: </span> أستخدام 4 عمليات عشرية و 2 صحيحة    </div>
+      <br><span class="bold">العيوب: </span> أستخدام 4 عمليات عشرية و 2 صحيحة
+      <br><span class="bold">مثال للجدول: </span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>i</th>
+          <th>X</th>
+          <th>Y</th>
+          <th>Round(X)</th>
+          <th>Round(Y)</th>
+        </tr>
+      </thead>
+    </table>
     <div class="title">Code sample</div>
     <pre>
       <code>
@@ -474,7 +487,18 @@
       <br><br><span class="bold">المنطقة الثانية (Region 2)</span>
       نبدأ من اخر نقطة بعد شرط توقف المنطقة الاولي (y0,x0) ونقوم بحساب القيمة الابتدائية للمتغير الثاني (p2) ونستمر في حساب القيم الجديدة لكل من المتغير  (x) والمتغير (p2) طبقا للمعادلة الموضحة بينما قيمة المتغير (y) دائما تنقص بمقدار واحد صحيح حتي الوصول لشرط التوقف وهو ان تصل قيمة المتغير (y) الي الصفر (y=0) 
       <br><span class="bold">ملحوظة: </span>تعتمد هذه الخوارزمية علي مبدأ Parameter Desicion
+      <br><span class="bold">مثال للجدول: </span>
     </div>
+    <table>
+      <tr>
+        <th>K</th>
+        <th>P</th>
+        <th>X_k+1</th>
+        <th>Y_k+1</th>
+        <th>2*r_y^2*X_k+1</th>
+        <th>2*r_x^2*Y_k+1</th>
+      </tr>
+    </table>
     <div class="title">Code sample</div>
     <pre>
       <code>
@@ -581,8 +605,8 @@
                 y^t & = x \sin{\Theta} + y \cos{\Theta} + (y_r - x \sin{\Theta} - y \cos{\Theta}) \\ \\ 
                 T   & = 
                   \begin{bmatrix}
-                    \cos{\Theta} & -\sin{\Theta} & x_r - x \cos{\Theta} + y \sin{\Theta} \\
-                    \sin{\Theta} &  \cos{\Theta} & y_r - x \sin{\Theta} - y \cos{\Theta} \\
+                    \cos{\Theta} & -\sin{\Theta} & x_r - \cos{\Theta} + \sin{\Theta} \\
+                    \sin{\Theta} &  \cos{\Theta} & y_r - \sin{\Theta} - \cos{\Theta} \\
                     0            & 0             & 1 \\
                   \end{bmatrix} \\
           \end{split}
@@ -606,7 +630,7 @@
             & where : \\
             & S_x \text{ is horizontal scaling factor} \\ 
             & S_y \text{ is vertical scaling factor} \\ \\
-            & \textbf{with respect to fixed point} (x_f, y_f) \\
+            & \textbf{with respect to fixed point} (x_f, y_f) \\ \\
             x^t & = x_f + S_x (x - x_f) \\
             y^t & = y_f + S_y (y - y_f) \\ \\
             T   & = 
@@ -683,7 +707,7 @@
                 sh_y & 1 & 0 \\ 
                 0    & 0 & 1 \\ 
               \end{bmatrix} \\ \\
-                & \textbf{Shear relative to fixed point } (x_f, y_f) \\
+                & \textbf{Shear relative to fixed point } (x_f, y_f) \\ \\
                 & \textbf{X-direction shear} \\
             x^t & = x + sh_x y - sh_x y_f \\ 
             y^t & = y \\
