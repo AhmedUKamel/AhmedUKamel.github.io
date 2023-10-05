@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>A. Summation</title>
+      <title>index</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -23,33 +23,26 @@
     
     
       <div class="crossnote markdown-preview  ">
-      <h1 align="center">J - Prime Factors</h1>
+      <h1 align="center">A. Summation</h1>
 <hr>
 <h3 class="crossnote-header" id="c">C++</h3>
 
-<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code>    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
+<pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code>    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
 
     <span class="token keyword keyword-using">using</span> <span class="token keyword keyword-namespace">namespace</span> std<span class="token punctuation">;</span>
 
     <span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword keyword-int">int</span> number<span class="token punctuation">,</span> printed <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        cin <span class="token operator">&gt;&gt;</span> number<span class="token punctuation">;</span>
-        <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> factor <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> number <span class="token operator">&gt;</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> factor <span class="token operator">&lt;=</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span> factor<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword keyword-int">int</span> counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-            <span class="token keyword keyword-while">while</span> <span class="token punctuation">(</span>number <span class="token operator">%</span> factor <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                counter<span class="token operator">++</span><span class="token punctuation">;</span>
-                number <span class="token operator">/=</span> factor<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>counter<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                cout <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span>printed<span class="token operator">++</span> <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token string">"*"</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                cout <span class="token operator">&lt;&lt;</span> <span class="token string">"("</span> <span class="token operator">&lt;&lt;</span> factor <span class="token operator">&lt;&lt;</span> <span class="token char">'^'</span> <span class="token operator">&lt;&lt;</span> counter <span class="token operator">&lt;&lt;</span> <span class="token char">')'</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
+        <span class="token keyword keyword-int">int</span> size<span class="token punctuation">;</span>
+        cin <span class="token operator">&gt;&gt;</span> size<span class="token punctuation">;</span>
+        <span class="token keyword keyword-int">int</span> array<span class="token punctuation">[</span>size<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            cin <span class="token operator">&gt;&gt;</span> array<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>number <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span>printed<span class="token operator">++</span> <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token string">"*"</span> <span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            cout <span class="token operator">&lt;&lt;</span> <span class="token string">"("</span> <span class="token operator">&lt;&lt;</span> number <span class="token operator">&lt;&lt;</span> <span class="token string">"^1)"</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-long">long</span> <span class="token keyword keyword-long">long</span> summation <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-for">for</span> <span class="token punctuation">(</span><span class="token keyword keyword-int">int</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            summation <span class="token operator">+=</span> array<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token function">abs</span><span class="token punctuation">(</span>summation<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 </code></pre>
       </div>
