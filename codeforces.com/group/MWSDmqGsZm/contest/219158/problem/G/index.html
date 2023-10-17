@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////home/ahmedukamel/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.1/crossnote/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:////home/ahmedukamel/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.6/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -23,21 +23,36 @@
     
     
       <div class="crossnote markdown-preview  ">
-      <h1 align="center">G - Summation from 1 to N</h1>
+      
+<h1 align="center">F. Digits Summation</h1>
 <hr>
-<h3 id="c" data-source-line="5">C++ </h3>
+<h3 id="c">C++ </h3>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code>    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
 
     <span class="token keyword keyword-using">using</span> <span class="token keyword keyword-namespace">namespace</span> std<span class="token punctuation">;</span>
 
     <span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword keyword-int">int</span> number<span class="token punctuation">;</span>
-        cin <span class="token operator">&gt;&gt;</span> number<span class="token punctuation">;</span>
-        <span class="token keyword keyword-long">long</span> <span class="token keyword keyword-long">long</span> summation <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword keyword-long">long</span> <span class="token keyword keyword-long">long</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>number <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-long">long</span> <span class="token keyword keyword-long">long</span> number1<span class="token punctuation">,</span> number2<span class="token punctuation">;</span>
+        cin <span class="token operator">&gt;&gt;</span> number1 <span class="token operator">&gt;&gt;</span> number2<span class="token punctuation">;</span>
+        <span class="token keyword keyword-int">int</span> summation <span class="token operator">=</span> <span class="token punctuation">(</span>number1 <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>number2 <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         cout <span class="token operator">&lt;&lt;</span> summation<span class="token punctuation">;</span>
         <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-</code></pre>
+</code></pre><hr>
+<h3 id="java">Java </h3>
+<pre data-role="codeBlock" data-info="java" class="language-java java"><code>    <span class="token keyword keyword-import">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Scanner</span></span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-static">static</span> <span class="token keyword keyword-void">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">Scanner</span> input <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-long">long</span> number1 <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-long">long</span> number2 <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>number1 <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">+</span> number2 <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre><hr>
+<p align="center">Copyright @ 2023 <a href="https://www.linkedin.com/in/ahmedukamel/" target="_blank">Ahmed Kamel</a>, inc. All rights reserved.</p>
+
       </div>
       
       
