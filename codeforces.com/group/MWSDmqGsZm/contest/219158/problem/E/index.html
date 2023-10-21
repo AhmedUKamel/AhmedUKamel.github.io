@@ -1,9 +1,9 @@
 <!DOCTYPE html><html><head>
-      <title>E - Area of a Circle</title>
+      <title>E. Area of a Circle</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:////home/ahmedukamel/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.6/crossnote/dependencies/katex/katex.min.css">
+      <link rel="stylesheet" href="file:////home/ahmedukamel/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.8/crossnote/dependencies/katex/katex.min.css">
       
       
       
@@ -24,7 +24,9 @@
     
       <div class="crossnote markdown-preview  ">
       
-<h1 align="center">D. Difference</h1>
+<h1 align="center">
+E. Area of a Circle
+</h1>
 <hr>
 <h3 id="c">C++ </h3>
 <pre data-role="codeBlock" data-info="cpp" class="language-cpp cpp"><code>    <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h&gt;</span></span>
@@ -32,9 +34,9 @@
     <span class="token keyword keyword-using">using</span> <span class="token keyword keyword-namespace">namespace</span> std<span class="token punctuation">;</span>
 
     <span class="token keyword keyword-int">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword keyword-long">long</span> <span class="token keyword keyword-long">long</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">;</span>
-        cin <span class="token operator">&gt;&gt;</span> a <span class="token operator">&gt;&gt;</span> b <span class="token operator">&gt;&gt;</span> c <span class="token operator">&gt;&gt;</span> d<span class="token punctuation">;</span>
-        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Difference = "</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span>a <span class="token operator">*</span> b<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>c <span class="token operator">*</span> d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-float">float</span> r<span class="token punctuation">,</span> PI <span class="token operator">=</span> <span class="token number">3.141592653</span><span class="token punctuation">;</span>
+        cin <span class="token operator">&gt;&gt;</span> r<span class="token punctuation">;</span>
+        cout <span class="token operator">&lt;&lt;</span> fixed <span class="token operator">&lt;&lt;</span> <span class="token function">setprecision</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> PI <span class="token operator">*</span> r <span class="token operator">*</span> r<span class="token punctuation">;</span>
         <span class="token keyword keyword-return">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 </code></pre><hr>
@@ -44,11 +46,9 @@
     <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-class">class</span> <span class="token class-name">Main</span> <span class="token punctuation">{</span>
         <span class="token keyword keyword-public">public</span> <span class="token keyword keyword-static">static</span> <span class="token keyword keyword-void">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token class-name">Scanner</span> input <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword keyword-long">long</span> a <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword keyword-long">long</span> b <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword keyword-long">long</span> c <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword keyword-long">long</span> d <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Difference = "</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>a <span class="token operator">*</span> b<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>c <span class="token operator">*</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-double">double</span> <span class="token constant">PI</span> <span class="token operator">=</span> <span class="token number">3.141592653</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-float">float</span> r <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">nextFloat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.9f"</span><span class="token punctuation">,</span> <span class="token constant">PI</span> <span class="token operator">*</span> r <span class="token operator">*</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 </code></pre><hr>
