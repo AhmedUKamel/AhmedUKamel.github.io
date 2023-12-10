@@ -503,6 +503,7 @@ svg {
   align-items: center;
   column-gap: 0.5rem;
   font-weight: var(--font-medium);
+  margin-top: 0.25rem;
 }
 
 .projects__button i {
@@ -805,7 +806,7 @@ svg {
   }
 
   .services__container {
-    grid-template-columns: repeat(3, 352px);
+    grid-template-columns: repeat(2, 352px);
     padding-block: 2.5rem 4rem;
   }
   .services__card {

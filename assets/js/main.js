@@ -84,7 +84,7 @@ const sections = document.querySelectorAll("section[id]");
 const scrollActive = () => {
   sections.forEach((current) => {
     const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 58;
+    const sectionTop = current.offsetTop - 60;
     const sectionId = current.getAttribute("id");
     const sectionsClasses = document.querySelector(
       `.nav__menu a[href*=${sectionId}]`
