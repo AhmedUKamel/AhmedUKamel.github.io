@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta charset="utf-8">
+    <!-- TODO -->
+    <link href="dist/images/logo.svg" rel="shortcut icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="AhmedUKamel">
+    <title></title>
+    <link rel="stylesheet" href="dist/css/app.css" />
+    </head>
+    <body class="app loading">
+        <div class="content">
+            <div class="flex items-center mt-8">
+                <h2 class="intro-y text-lg font-medium mr-auto">
+                    Wizard Layout
+                </h2>
+            </div>
+            <!-- BEGIN: Wizard Layout -->
+            <div class="intro-y box py-10 sm:py-20 mt-5">
+                <div class="wizard flex flex-col lg:flex-row justify-center px-5 sm:px-20">
+                    <div class="intro-x lg:text-center flex items-center lg:block flex-1 z-10">
+                        <button class="w-10 h-10 rounded-full button text-white bg-theme-1">1</button>
+                        <div class="lg:w-32 font-medium text-base lg:mt-3 ml-3 lg:mx-auto">Create New Account</div>
+                    </div>
+                    <div class="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
+                        <button class="w-10 h-10 rounded-full button text-gray-600 bg-gray-200">2</button>
+                        <div class="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-gray-700">Setup Your Profile</div>
+                    </div>
+                    <div class="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
+                        <button class="w-10 h-10 rounded-full button text-gray-600 bg-gray-200">3</button>
+                        <div class="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-gray-700">Setup Your Business Details</div>
+                    </div>
+                    <div class="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
+                        <button class="w-10 h-10 rounded-full button text-gray-600 bg-gray-200">4</button>
+                        <div class="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-gray-700">Setup Billing Account</div>
+                    </div>
+                    <div class="intro-x lg:text-center flex items-center mt-5 lg:mt-0 lg:block flex-1 z-10">
+                        <button class="w-10 h-10 rounded-full button text-gray-600 bg-gray-200">5</button>
+                        <div class="lg:w-32 text-base lg:mt-3 ml-3 lg:mx-auto text-gray-700">Finalize your purchase</div>
+                    </div>
+                    <div class="wizard__line hidden lg:block w-2/3 bg-gray-200 absolute mt-5"></div>
+                </div>
+                <div class="px-5 sm:px-20 mt-10 pt-10 border-t border-gray-200">
+                    <div class="font-medium text-base">Appearance Settings</div>
+                    <div class="grid grid-cols-12 gap-4 row-gap-5 mt-5">
+                        <div class="intro-y col-span-12 xl:col-span-6">
+                            <div class="mb-2">Profile Picture</div>
+                            <div class="border border-gray-200 rounded-md p-5">
+                                <div class="w-40 h-40 relative image-fit cursor-pointer zoom-in mx-auto">
+                                    <img class="rounded-md" alt="..." src="dist/images/profile-4.jpg">
+                                </div>
+                                <div class="w-40 mx-auto cursor-pointer relative mt-5">
+                                    <button type="button" class="button w-full bg-theme-1 text-white">Change Picture</button>
+                                    <input type="file" class="w-full h-full top-0 left-0 absolute opacity-0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="intro-y col-span-12 sm:col-span-6">
+                            <div class="mb-2">Profile Bio</div>
+                                <textarea class="input w-full border flex-1" name="comment" placeholder="Type bio about yourself..."
+                                    minlength="10" required="" style="height: 100px;">
+                                </textarea>
+                        </div>
+                        <div class="intro-y col-span-12 flex items-center justify-center sm:justify-end mt-5">
+                            <button class="button w-24 justify-center block bg-theme-1 text-white ml-2">Finish</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END: Wizard Layout -->
+        </div>
+        <script src="dist/js/app.js"></script>
+    </body>
+</html>
